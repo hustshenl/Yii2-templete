@@ -25,6 +25,11 @@ return [
                 ],
             ],
         ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            //'enableStrictParsing' => true,
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],

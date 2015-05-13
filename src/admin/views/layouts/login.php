@@ -1,0 +1,73 @@
+<?php
+
+use yii\helpers\Html;
+use hustshenl\metronic\helpers\Layout;
+use hustshenl\metronic\widgets\Menu;
+use hustshenl\metronic\widgets\NavBar;
+use hustshenl\metronic\widgets\Nav;
+use hustshenl\metronic\widgets\Breadcrumbs;
+use hustshenl\metronic\widgets\Button;
+use hustshenl\metronic\widgets\HorizontalMenu;
+use hustshenl\metronic\Metronic;
+use admin\widgets\Badge;
+use admin\assets\LoginAsset;
+
+$this->beginPage();
+Metronic::registerThemeAsset($this);
+LoginAsset::register($this);
+?>
+    <!DOCTYPE html>
+    <!--[if IE 8]>
+    <html lang="<?= Yii::$app->language ?>" class="ie8 no-js"> <![endif]-->
+    <!--[if IE 9]>
+    <html lang="<?= Yii::$app->language ?>" class="ie9 no-js"> <![endif]-->
+    <!--[if !IE]><!-->
+    <html lang="<?= Yii::$app->language ?>" class="no-js">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+    <head>
+        <meta charset="<?= Yii::$app->charset ?>"/>
+        <title><?= Html::encode($this->title) ?></title>
+        <?php $this->head() ?>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta name="MobileOptimized" content="320">
+        <link rel="shortcut icon" href="favicon.ico"/>
+    </head>
+    <!-- END HEAD -->
+    <!-- BEGIN BODY -->
+    <body class="login" >
+    <?php $this->beginBody() ?>
+    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+    <div class="menu-toggler sidebar-toggler">
+    </div>
+    <!-- END SIDEBAR TOGGLER BUTTON -->
+    <!-- BEGIN LOGO -->
+    <div class="logo">
+        <a href="index-2.html">
+            <img src="<?= Metronic::getAssetsUrl($this) . '/img/logo.png'; ?>" alt=""/>
+        </a>
+    </div>
+    <!-- END LOGO -->
+
+    <?=
+    (Metronic::getComponent()->layoutOption == Metronic::LAYOUT_BOXED) ?
+        Html::beginTag('div', ['class' => 'container']) : '';
+    ?>
+    <!-- BEGIN CONTAINER -->
+    <div class="content">
+        <!-- BEGIN CONTENT -->
+        <?= $content ?>
+        <!-- END CONTENT -->
+    </div>
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+    <div class="copyright">
+        2014-<?= date('Y') ?> &copy; Meilinnet.
+    </div>
+    <?= (Metronic::getComponent()->layoutOption == Metronic::LAYOUT_BOXED) ? Html::endTag('div') : ''; ?>
+    <?php $this->endBody() ?>
+    </body>
+    <!-- END BODY -->
+    </html>
+<?php $this->endPage() ?>

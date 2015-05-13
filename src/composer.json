@@ -33,6 +33,7 @@
     "creocoder/yii2-flysystem": "0.8.*",
     "kartik-v/yii2-editable": "*",
     "kartik-v/yii2-widget-colorinput": "*",
+    "hustshenl/yii2-metronic": "*",
     "kartik-v/yii2-mpdf": "*",
     "kartik-v/yii2-grid": "*",
     "kartik-v/yii2-dynagrid": "*",
@@ -50,7 +51,9 @@
   "extra": {
     "asset-installer-paths": {
       "npm-asset-library": "vendor/npm",
-      "bower-asset-library": "vendor/bower"
+      "bower-asset-library": "vendor/bower",
+      "npm-searchable": false,
+      "bower-searchable": false
     }
   }
 }

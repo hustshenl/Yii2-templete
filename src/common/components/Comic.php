@@ -5,7 +5,7 @@
  * @Description:
  */
 
-namespace common\components\service;
+namespace common\components;
 
 use yii\base\Component;
 use yii;
