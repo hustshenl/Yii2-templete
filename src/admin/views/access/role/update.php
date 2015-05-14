@@ -9,19 +9,27 @@ use yii\helpers\Html;
 $this->title = Yii::t('rbac-admin', 'Update Role').': ' . $model->name;
 $this->params['subTitle'] = Yii::t('rbac-admin', 'Update Role');
 $this->params['breadcrumbs']['links'] = [
-    ['label' => \Yii::t('rbac-admin', 'Roles'),
-        'url' => ['role/index']],
-    ['label' => $model->name,
-        'url' => ['role/view', 'id' => $model->name]],
+    ['label' => \Yii::t('rbac-admin', 'Roles'), 'url' => ['index']],
+    ['label' => $model->name, 'url' => ['view', 'id' => $model->name]],
     $this->params['subTitle']
 ];
 ?>
-<div class="auth-item-update">
+<div class="row role-update">
+    <div class="col-md-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-settings"></i><?= Html::encode($this->title) ?>
+                </div>
+                <div class="actions btn-set">
+                </div>
+            </div>
 
-	<h1><?= Html::encode($this->title) ?></h1>
-	<?php
-    echo $this->render('_form', [
-        'model' => $model,
-    ]);
-    ?>
+
+            <?php echo $this->render('_form', [
+                'model' => $model,
+            ]); ?>
+
+        </div>
+    </div>
 </div>

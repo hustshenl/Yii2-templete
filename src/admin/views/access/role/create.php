@@ -8,19 +8,28 @@ use yii\helpers\Html;
  */
 
 $this->title = \Yii::t('rbac-admin', 'Create Role');
-$this->params['subTitle'] = \Yii::t('rbac-admin', 'Create Role');
+$this->params['subTitle'] = $this->title;
 $this->params['breadcrumbs']['links'] = [
-    ['label' => \Yii::t('rbac-admin', 'Roles'),
-        'url' => ['role/index']],
+    ['label' => \Yii::t('rbac-admin', 'Roles'), 'url' => ['index']],
     $this->params['subTitle']
 ];
 ?>
-<div class="auth-item-create">
+<div class="row role-create">
+    <div class="col-md-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-settings"></i><?= Html::encode($this->title) ?>
+                </div>
+                <div class="actions btn-set">
+                </div>
+            </div>
 
-	<h1><?= Html::encode($this->title) ?></h1>
 
 	<?php echo $this->render('_form', [
         'model' => $model,
     ]); ?>
 
+        </div>
+    </div>
 </div>

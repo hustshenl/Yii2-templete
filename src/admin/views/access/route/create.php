@@ -10,24 +10,30 @@ use yii\widgets\ActiveForm;
  */
 
 $this->title = Yii::t('rbac-admin', 'Create Route');
-$this->params['subTitle'] = \Yii::t('rbac-admin', 'Create Route');
+$this->params['subTitle'] = $this->title;
 $this->params['breadcrumbs']['links'] = [
     ['label' => \Yii::t('rbac-admin', 'Routes'),
-        'url' => ['route/index']],
+        'url' => ['index']],
     $this->params['subTitle']
 ];
 ?>
-<h1><?= Yii::t('rbac-admin', 'Create Route') ?></h1>
-
-<div class="create">
-
+<div class="row route-create">
+    <div class="col-md-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-settings"></i><?= Html::encode($this->title) ?>
+                </div>
+                <div class="actions btn-set">
+                </div>
+            </div>
 	<?php $form = ActiveForm::begin(); ?>
-
 		<?= $form->field($model, 'route') ?>
-
 		<div class="form-group">
 			<?= Html::submitButton(Yii::t('rbac-admin', 'Create'), ['class' => 'btn btn-primary']) ?>
 		</div>
 	<?php ActiveForm::end(); ?>
 
-</div><!-- create -->
+</div>
+</div>
+</div>

@@ -8,10 +8,9 @@ use hustshenl\metronic\widgets\ActiveForm;
 /* @var $model \common\models\user\SignupForm */
 
 $this->title = \Yii::t('rbac-admin', 'Create Admin');;
-$this->params['subTitle'] = \Yii::t('rbac-admin', 'Create Admin');
+$this->params['subTitle'] = $this->title;
 $this->params['breadcrumbs']['links'] = [
-    ['label' => \Yii::t('rbac-admin', 'Assignment'),
-        'url' => ['assignment/index']],
+    ['label' => \Yii::t('rbac-admin', 'Assignments'), 'url' => ['index']],
     $this->params['subTitle']
 ];
 ?>

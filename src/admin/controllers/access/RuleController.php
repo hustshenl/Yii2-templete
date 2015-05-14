@@ -1,6 +1,6 @@
 <?php
 
-namespace mdm\admin\controllers\access;
+namespace admin\controllers\access;
 
 use Yii;
 use admin\models\access\BizRule;

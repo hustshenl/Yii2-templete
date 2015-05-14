@@ -11,8 +11,7 @@ use hustshenl\metronic\widgets\ActiveForm;
 $this->title = \Yii::t('rbac-admin', 'Update Admin');
 $this->params['subTitle'] = \Yii::t('rbac-admin', 'Update Admin');
 $this->params['breadcrumbs']['links'] = [
-    ['label' => \Yii::t('rbac-admin', 'Assignment'),
-    'url' => ['assignment/index']],
+    ['label' => \Yii::t('rbac-admin', 'Assignment'), 'url' => ['index']],
     $this->params['subTitle']
 ];
 //注册控制JS

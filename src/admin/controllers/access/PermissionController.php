@@ -21,7 +21,7 @@ use yii\helpers\Html;
  */
 class PermissionController extends Controller
 {
-
+    public $enableCsrfValidation = false;
     /**
      * @inheritdoc
      */
