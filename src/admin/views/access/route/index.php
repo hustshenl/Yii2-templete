@@ -6,12 +6,12 @@ use yii\helpers\Html;
  * @var yii\web\View $this
  */
 $this->title = Yii::t('rbac-admin', 'Routes');
-$this->params['subTitle'] = \Yii::t('rbac-admin', 'Routes');
+$this->params['subTitle'] = $this->title;
 $this->params['breadcrumbs']['links'] = [
     $this->params['subTitle']
 ];
 ?>
-<h1>Routes</h1>
+<h1><?= $this->title ?></h1>
 <p>
     <?= Html::a(Yii::t('rbac-admin', 'Create route'), ['create'], ['class' => 'btn btn-success']) ?>
 </p>

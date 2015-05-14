@@ -20,7 +20,7 @@ use yii\helpers\Html;
  */
 class RoleController extends Controller
 {
-
+    public $enableCsrfValidation = false;
     /**
      * @inheritdoc
      */

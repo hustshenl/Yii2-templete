@@ -17,9 +17,9 @@ $this->params['breadcrumbs']['links'] = [
 <div class="assignment-index">
 
 	<h1><?= Html::encode($this->title) ?></h1>
-    <p>
-        <?= Html::a(Yii::t('rbac-admin', 'Create Admin'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <!--<p>
+        <?/*= Html::a(Yii::t('rbac-admin', 'Create Admin'), ['create'], ['class' => 'btn btn-success']) */?>
+    </p>-->
 	<?php
     Pjax::begin([
         'enablePushState'=>false,
@@ -35,7 +35,7 @@ $this->params['breadcrumbs']['links'] = [
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template'=>'{view} {update}'
+                'template'=>'{view}'
             ],
         ],
     ]);

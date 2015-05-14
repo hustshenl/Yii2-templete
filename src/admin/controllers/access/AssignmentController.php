@@ -28,7 +28,7 @@ class AssignmentController extends Controller
     public $idField = 'id';
     public $usernameField = 'username';
     public $searchClass;
-
+    public $enableCsrfValidation = false;
     /**
      * @inheritdoc
      */
@@ -37,7 +37,7 @@ class AssignmentController extends Controller
         parent::init();
         if ($this->userClassName === null) {
             $this->userClassName = Yii::$app->getUser()->identityClass;
-            $this->userClassName = $this->userClassName ? : 'common\models\user\Admin';
+            $this->userClassName = $this->userClassName ? : 'common\models\user\User';
         }
     }
 

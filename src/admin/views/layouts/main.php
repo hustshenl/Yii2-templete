@@ -229,87 +229,6 @@ $this->registerJs('Metronic.init();Layout.init(); QuickSidebar.init();Demo.init(
                     ['icon' => 'fa fa-home', 'label' => \Yii::t('common', 'Home'), 'url' => ['site/index']],
                     // 'Products' menu item will be selected as long as the route is 'product/index'
                     [
-                        'icon' => 'icon-handbag',
-                        //'badge' => Badge::widget(['label' => 'New', 'round' => false, 'type' => Badge::TYPE_SUCCESS]),
-                        'label' => '产品管理',
-                        'url' => ['/product/index'],
-                        'items' => [
-                            ['label' => '产品列表', 'url' => ['product/index'],],
-                            [
-                                'label' => '标签管理',
-                                'url' => ['product/tag'],
-                                'childUrls' => ['product/createtag'],
-                                /*'items' => [
-                                    ['label' => '标签列表', 'url' => ['product/tag']],
-                                    ['label' => '添加标签', 'url' => ['product/createtag']]
-                                ]*/
-                            ],
-                            [
-                                'label' => '分类管理',
-                                'url' => ['product/category'],
-                                'childUrls' => ['product/createcategory'],
-                                /*'items' => [
-                                    ['label' => '分类管理', 'url' => ['product/category']],
-                                    ['label' => '添加分类', 'url' => ['product/createcategory']]
-                                ]*/
-                            ],
-                            [
-                                'label' => '单位管理',
-                                'url' => ['product/unit'],
-                                'childUrls' => ['product/createunit'],
-                                /*'items' => [
-                                    ['label' => '单位管理', 'url' => ['product/unit']],
-                                    ['label' => '添加单位', 'url' => ['product/createunit']]
-                                ]*/
-                            ],
-                            ['label' => '产品统计', 'url' => ['product/statistics']],
-                        ]
-                    ],
-                    [
-                        'icon' => 'icon-basket',
-                        'label' => '订单管理',
-                        'url' => ['/order/index'],
-                        'items' => [
-                            [
-                                'label' => '订单列表',
-                                'url' => ['/order/index'],
-                            ],
-                            [
-
-                                'label' => '5分钟提醒',
-
-                                'url' => ['/order/min5?all=1'],
-
-                            ],
-
-                            [
-
-                                'label' => '45分钟提醒',
-
-                                'url' => ['/order/min45?all=1'],
-
-                            ],
-
-                            [
-
-                                'label' => '超时订单',
-                                'url' => ['/order/overtime?all=1']
-                            ],
-                            [
-                                'label' => '投诉订单',
-                                'url' => ['/order/complaint?all=1']
-                            ],
-                            [
-                                'label' => '黑名单订单',
-                                'url' => ['/order/hidden?all=1']
-                            ],
-                            [
-                                'label' => '订单统计',
-                                'url' => ['/order/statistic']
-                            ],
-                        ]
-                    ],
-                    [
                         'icon' => 'fa fa-user',
                         'label' => '用户管理',
                         'url' => ['customer/index'],
@@ -324,65 +243,6 @@ $this->registerJs('Metronic.init();Layout.init(); QuickSidebar.init();Demo.init(
                                 'url' => ['customer/statistic'],
                             ],
                         ],
-                    ],
-                    [
-                        'icon' => 'fa fa-cube',
-                        'label' => '商户管理',
-                        'url' => ['shop/index'],
-                        'items' => [
-                            [
-                                'label' => '商户列表',
-                                'url' => ['shop/index'],
-                                'childUrls' => ['shop/view', 'shop/order', 'goods/index', 'shop/comment', 'shop/member', 'shop/merchant'],
-                            ],
-                            [
-                                'label' => '添加商户',
-                                'url' => ['shop/create-merchant'],
-                                'childUrls' => ['shop/create'],
-                            ],
-                            [
-                                'label' => '商户类别',
-                                'url' => ['shop/category'],
-                                'childUrls' => ['shop/create-category'],
-                            ],
-                            [
-                                'label' => '商户申请',
-                                'url' => ['shop/apply'],
-                                'childUrls' => ['shop/view-apply', 'shop/reply-apply'],
-                            ],
-                            [
-                                'label' => '商户账号',
-                                'url' => ['shop/merchants'],
-                                'childUrls' => ['shop/merchant-edit'],
-                            ],
-                            [
-                                'label' => '商户统计',
-                                'url' => ['shop/statistic'],
-                            ],
-                        ],
-                    ],
-                    [
-                        'icon' => 'icon-present',
-                        'label' => '促销管理',
-                        'url' => ['promotion/firstorder'],
-                        'items' => [
-                            [
-                                'label' => '首单优惠',
-                                'url' => ['promotion/firstorder?all=1'],
-                            ],
-                            [
-                                'label' => '满减优惠',
-
-                                'url' => ['promotion/fullorder?all=1'],
-
-                            ],
-
-                            [
-                                'label' => '促销统计',
-                                'url' => ['promotion/statistic'],
-                            ],
-
-                        ]
                     ],
                     [
                         'icon' => 'icon-docs',
@@ -415,33 +275,6 @@ $this->registerJs('Metronic.init();Layout.init(); QuickSidebar.init();Demo.init(
                         ],
                     ],
                     [
-                        'icon' => 'fa fa-thumbs-up',
-                        'label' => '评价管理',
-                        'url' => ['evaluation/index'],
-                        'items' => [
-                            [
-                                'label' => '评论列表',
-                                'url' => ['evaluation/index'],
-                            ],
-                            [
-                                'label' => '评分列表',
-                                'url' => ['evaluation/scores'],
-                            ],
-                        ],
-                    ],
-                    [
-                        'icon' => 'fa fa-comments',
-                        'label' => '投诉管理',
-                        'url' => ['feedback/index'],
-                        'items' => [
-                            [
-                                'label' => '投诉列表',
-                                'url' => ['feedback/index'],
-                                'childUrls' => ['feedback/reply', 'feedback/view'],
-                            ],
-                        ],
-                    ],
-                    [
                         'icon' => 'icon-settings',
                         'label' => '系统设置',
                         //'url' => ['config/index'],
@@ -451,7 +284,7 @@ $this->registerJs('Metronic.init();Layout.init(); QuickSidebar.init();Demo.init(
                                 'url' => ['config/index'],
                             ],
                             [
-                                'label' => '运营设置',
+                                'label' => 'UCenter设置',
                                 'url' => ['config/operation'],
                             ],
                             [
@@ -459,14 +292,9 @@ $this->registerJs('Metronic.init();Layout.init(); QuickSidebar.init();Demo.init(
                                 'url' => ['weixin/index'],
                                 'childUrls' => ['weixin/create', 'weixin/update', 'weixin/view'],
                             ],
-                            [
-                                'label' => '区域设置',
-                                'url' => ['config/area'],
-                                'childUrls' => ['config/create-area'],
-                            ],
+
                         ],
                     ],
-
                     [
                         'icon' => 'fa fa-bookmark-o',
                         'label' => '权限管理',
@@ -474,27 +302,26 @@ $this->registerJs('Metronic.init();Layout.init(); QuickSidebar.init();Demo.init(
                         'items' => [
                             [
                                 'label' => '角色管理',
-                                'url' => ['role/index'],
+                                'url' => ['access/role/index'],
                                 'childUrls' => ['role/create', 'role/update', 'role/view'],
                             ],
                             [
                                 'label' => '路由管理',
-                                'url' => ['route/index'],
+                                'url' => ['access/route/index'],
                                 'childUrls' => ['route/create', 'route/update', 'route/view'],
                             ],
                             [
                                 'label' => '权限管理',
-                                'url' => ['permission/index'],
+                                'url' => ['access/permission/index'],
                                 'childUrls' => ['permission/create', 'permission/update', 'permission/view'],
                             ],
                             [
                                 'label' => '权限分配',
-                                'url' => ['assignment/index'],
+                                'url' => ['access/assignment/index'],
                                 'childUrls' => ['assignment/create', 'assignment/update', 'assignment/view'],
                             ],
                         ],
                     ],
-
                 ],
             ]
         );
