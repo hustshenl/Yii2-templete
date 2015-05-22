@@ -130,6 +130,7 @@ $this->registerJs('Metronic.init();Layout.init(); QuickSidebar.init();Demo.init(
                     'icon' => 'fa icon-bell',
                     'badge' => Badge::widget(['label' => '0', 'type' => Badge::TYPE_DANGER, 'options' => ['id' => 'notify-all']]),
                     'label' => \Yii::t('common', 'Home'),
+                    'dropdownType' => Nav::TYPE_NOTIFICATION,
                     'url' => ['/site/index'],
                     // dropdown title
                     //'title' => 'N条待处理信息',
@@ -140,42 +141,17 @@ $this->registerJs('Metronic.init();Layout.init(); QuickSidebar.init();Demo.init(
                     'items' => [
                         [
                             //'icon' => 'icon-user',
-                            'label' => '5分钟提醒',
-                            'url' => ['order/min5'],
+                            'label' => '提醒',
+                            'url' => ['#'],
                             'badge' => Badge::widget(['label' => '0', 'type' => Badge::TYPE_DANGER, 'options' => ['id' => 'notify-min5']]),
                         ],
-                        [
-                            //'icon' => 'icon-user',
-                            'label' => '45分钟提醒',
-                            'url' => ['order/min45'],
-                            'badge' => Badge::widget(['label' => '0', 'type' => Badge::TYPE_DANGER, 'options' => ['id' => 'notify-min45']]),
-                        ],
-                        [
-                            //'icon' => 'icon-user',
-                            'label' => '超时订单',
-                            'url' => ['order/overtime'],
-                            'badge' => Badge::widget(['label' => '0', 'type' => Badge::TYPE_DANGER, 'options' => ['id' => 'notify-timeout']]),
-                        ],
-                        [
-                            //'icon' => 'icon-user',
-                            'label' => '投诉订单',
-                            'url' => ['order/complaint'],
-                            'badge' => Badge::widget(['label' => '0', 'type' => Badge::TYPE_DANGER, 'options' => ['id' => 'notify-complaint']]),
-                        ],
-                        [
-                            //'icon' => 'icon-user',
-                            'label' => '黑名单订单',
-                            'url' => ['order/hidden'],
-                            'badge' => Badge::widget(['label' => '0', 'type' => Badge::TYPE_DANGER, 'options' => ['id' => 'notify-forbidden']]),
-                        ],
-
                     ]
                 ],
                 [
                     'label' => Nav::userItem(\Yii::$app->user->identity->username, Metronic::getAssetsUrl($this) . '/img/avatar.png'),
                     'icon' => 'fa fa-angle-down',
                     'url' => '#',
-                    'type' => Nav::TYPE_USER,
+                    'dropdownType' => Nav::TYPE_USER,
                     'items' => [
                         [
                             'icon' => 'icon-user',

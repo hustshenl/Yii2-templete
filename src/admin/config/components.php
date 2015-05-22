@@ -44,6 +44,7 @@ return [
         'theme' => 'light',
         'layoutOption' => \hustshenl\metronic\Metronic::LAYOUT_FLUID,
         'headerOption' => 'fixed',
+        'headerDropdown' => 'light',
     ],
     'image' => [
         'class' => 'yii\image\ImageDriver',

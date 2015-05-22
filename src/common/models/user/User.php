@@ -1,6 +1,7 @@
 <?php
 namespace common\models\user;
 
+use common\behaviors\IPBehavior;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -41,6 +42,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             TimestampBehavior::className(),
+            IPBehavior::className(),
         ];
     }
 
