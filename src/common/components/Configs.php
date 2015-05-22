@@ -14,12 +14,12 @@ use yii\helpers\ArrayHelper;
 
 class Configs extends \yii\base\Object
 {
-    const CACHE_KEY = 'Hustshenl.Config';
+    const CACHE_KEY = 'hust.shenl.Config';
 
     public $configTableName = '{{%config}}';
     public $autoCreateConfigTable = false;
     public $strictMode = false;
-    public $duration = 86400;
+    public $cacheDuration = 86400;
     private $_config;
 
     /*public function init()
@@ -92,7 +92,7 @@ class Configs extends \yii\base\Object
 
         if (false !== $cache)
         {
-            $cache->set(self::CACHE_KEY, $this->_config, $this->duration);
+            $cache->set(self::CACHE_KEY, $this->_config, $this->cacheDuration);
         }
 
     }
@@ -124,7 +124,7 @@ class Configs extends \yii\base\Object
             }
             if (false !== $cache)
             {
-                $cache->set(self::CACHE_KEY, $this->_config, $this->duration);
+                $cache->set(self::CACHE_KEY, $this->_config, $this->cacheDuration);
             }
         }
 

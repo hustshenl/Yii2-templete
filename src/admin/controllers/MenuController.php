@@ -1,22 +1,22 @@
 <?php
 
-namespace admin\controllers\access;
+namespace admin\controllers;
 
 use Yii;
-use admin\models\access\BizRule;
+use common\models\base\Menu;
+use admin\models\base\searchs\Menu as MenuSearch;
 use yii\web\Controller;
-use admin\models\access\searchs\BizRule as BizRuleSearch;
-use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
 use common\helpers\MenuHelper;
 
 /**
- * Description of RuleController
+ * MenuController implements the CRUD actions for Menu model.
  *
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since 1.0
  */
-class RuleController extends Controller
+class MenuController extends Controller
 {
 
     /**
@@ -35,12 +35,12 @@ class RuleController extends Controller
     }
 
     /**
-     * Lists all AuthItem models.
+     * Lists all Menu models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new BizRuleSearch();
+        $searchModel = new MenuSearch;
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
         return $this->render('index', [
@@ -50,79 +50,83 @@ class RuleController extends Controller
     }
 
     /**
-     * Displays a single AuthItem model.
-     * @param  string $id
+     * Displays a single Menu model.
+     * @param  integer $id
      * @return mixed
      */
     public function actionView($id)
     {
-        $model = $this->findModel($id);
-
-        return $this->render('view', ['model' => $model]);
+        return $this->render('view', [
+                'model' => $this->findModel($id),
+        ]);
     }
 
     /**
-     * Creates a new AuthItem model.
+     * Creates a new Menu model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new BizRule(null);
+        $model = new Menu;
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             MenuHelper::invalidate();
-
-            return $this->redirect(['view', 'id' => $model->name]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('create', ['model' => $model,]);
+            return $this->render('create', [
+                    'model' => $model,
+            ]);
         }
     }
 
     /**
-     * Updates an existing AuthItem model.
+     * Updates an existing Menu model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param  string $id
+     * @param  integer $id
      * @return mixed
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        if ($model->menuParent) {
+            $model->parent_name = $model->menuParent->name;
+        }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             MenuHelper::invalidate();
-
-            return $this->redirect(['view', 'id' => $model->name]);
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                    'model' => $model,
+            ]);
         }
-
-        return $this->render('update', ['model' => $model,]);
     }
 
     /**
-     * Deletes an existing AuthItem model.
+     * Deletes an existing Menu model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param  string $id
+     * @param  integer $id
      * @return mixed
      */
     public function actionDelete($id)
     {
-        $model = $this->findModel($id);
-        Yii::$app->authManager->remove($model->item);
+        $this->findModel($id)->delete();
         MenuHelper::invalidate();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the AuthItem model based on its primary key value.
+     * Finds the Menu model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param  string        $id
-     * @return AuthItem      the loaded model
-     * @throws HttpException if the model cannot be found
+     * @param  integer $id
+     * @return Menu the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        $item = Yii::$app->authManager->getRule($id);
-        if ($item) {
-            return new BizRule($item);
+        if (($model = Menu::findOne($id)) !== null) {
+            return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }

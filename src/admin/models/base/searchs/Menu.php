@@ -1,14 +1,14 @@
 <?php
 
-namespace admin\models\access\searchs;
+namespace admin\models\base\searchs;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use mdm\admin\models\Menu as MenuModel;
+use common\models\base\Menu as MenuModel;
 
 /**
- * Menu represents the model behind the search form about [[\mdm\admin\models\Menu]].
+ * Menu represents the model behind the search form about [[\common\models\base\Menu]].
  * 
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since 1.0
@@ -22,7 +22,7 @@ class Menu extends MenuModel
     public function rules()
     {
         return [
-            [['id', 'parent', 'order'], 'integer'],
+            [['id', 'parent', 'sort'], 'integer'],
             [['name', 'route', 'parent_name'], 'safe'],
         ];
     }
@@ -59,10 +59,10 @@ class Menu extends MenuModel
             'desc' => ['parent.name' => SORT_DESC],
             'label' => 'parent',
         ];
-        $sort->attributes['order'] = [
-            'asc' => ['parent.order' => SORT_ASC, 't.order' => SORT_ASC],
-            'desc' => ['parent.order' => SORT_DESC, 't.order' => SORT_DESC],
-            'label' => 'order',
+        $sort->attributes['sort'] = [
+            'asc' => ['parent.sort' => SORT_ASC, 't.sort' => SORT_ASC],
+            'desc' => ['parent.sort' => SORT_DESC, 't.sort' => SORT_DESC],
+            'label' => 'sort',
         ];
         $sort->defaultOrder = ['menuParent.name' => SORT_ASC];
 

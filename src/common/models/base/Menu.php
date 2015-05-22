@@ -1,9 +1,8 @@
 <?php
 
-namespace admin\models\access;
+namespace common\models\base;
 
 use Yii;
-use mdm\admin\components\Configs;
 
 /**
  * This is the model class for table "menu".
@@ -12,7 +11,7 @@ use mdm\admin\components\Configs;
  * @property string $name Menu name
  * @property integer $parent Menu parent
  * @property string $route Route for this menu
- * @property integer $order Menu order
+ * @property integer $sort Menu sort
  * @property string $data Extra information for this menu
  *
  * @property Menu $menuParent Menu parent
@@ -30,19 +29,7 @@ class Menu extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return Configs::instance()->menuTable;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public static function getDb()
-    {
-        if (Configs::instance()->db !== null) {
-            return Configs::instance()->db;
-        } else {
-            return parent::getDb();
-        }
+        return '{{%menu}}';
     }
 
     /**
@@ -56,11 +43,12 @@ class Menu extends \yii\db\ActiveRecord
             [['parent_name'], 'in',
                 'range' => static::find()->select(['name'])->column(),
                 'message' => 'Menu "{value}" not found.'],
-            [['parent', 'route', 'data', 'order'], 'default'],
-            [['order'], 'integer'],
-            [['route'], 'in',
+            [['parent', 'route', 'data', 'sort'], 'default'],
+            [['sort'], 'integer'],
+            [['route'], 'string','max'=>255]
+            /*[['route'], 'in',
                 'range' => static::getSavedRoutes(),
-                'message' => 'Route "{value}" not found.']
+                'message' => 'Route "{value}" not found.']*/
         ];
     }
 
@@ -97,7 +85,7 @@ class Menu extends \yii\db\ActiveRecord
             'parent' => Yii::t('rbac-admin', 'Parent'),
             'parent_name' => Yii::t('rbac-admin', 'Parent Name'),
             'route' => Yii::t('rbac-admin', 'Route'),
-            'order' => Yii::t('rbac-admin', 'Order'),
+            'sort' => Yii::t('rbac-admin', 'Sort'),
             'data' => Yii::t('rbac-admin', 'Data'),
         ];
     }

@@ -22,7 +22,7 @@ use Exception;
  */
 class RouteController extends \yii\web\Controller
 {
-    const CACHE_TAG = 'mdm.admin.route';
+    const CACHE_TAG = 'hust.shenl.route';
     public $enableCsrfValidation = false;
 
     /**
