@@ -11,7 +11,7 @@ return [
         'formatter' => [
             'class' => 'common\helpers\Formatter',
         ],
-        'mailer' => [
+        /*'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'viewPath' => '@common/mail',
             // send all mails to a file by default. You have to set
@@ -26,7 +26,7 @@ return [
                 'port' => '465',
                 'encryption' => 'ssl',
             ],
-        ],
+        ],*/
         'i18n' => [
             'translations' => [
                 'common*' => [

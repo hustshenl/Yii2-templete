@@ -7,16 +7,16 @@ use yii\helpers\Url;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\PasswordResetRequestForm */
 
-$this->title = 'Success.';
+$this->title = '邮件发送成功';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="site-request-password-reset">
     <h3><?= Html::encode($this->title) ?></h3>
 
-    <p>Check your email for further instructions.</p>
+    <p>请检查邮件，并按照邮件指引进行操作。</p>
 
-    <p><?= Html::a('Back Home', Url::home(), ['class' => 'btn btn-success pull-right',] ) ?></p>
+    <p><?= Html::a('返回主页', Url::home(), ['class' => 'btn btn-success pull-right',] ) ?></p>
 <!--    <div class="form-actions">
         <?/*= Html::button('Close', ['class' => 'btn btn-success pull-right', 'onclick' => 'window.open(\'about:blank\',\'_self\');window.close();',] ) */?>
     </div>-->

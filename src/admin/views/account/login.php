@@ -32,7 +32,7 @@ $this->registerJs('Metronic.init();
     <?=  $form->field($model, 'rememberMe')->checkbox() ?>
     <div class="form-actions">
         <?= Html::submitButton('Login', ['class' => 'btn btn-success', 'name' => 'login-button']) ?>
-        <a href="<?= Url::toRoute('account/request-password-reset') ?>" class="forget-password">Forgot Password?</a>
+        <a href="javascript:;"  id="forget-password" class="forget-password">Forgot Password?</a>
     </div>
     <div class="create-account"style="display: none;">
         <p>
@@ -43,11 +43,30 @@ $this->registerJs('Metronic.init();
     <?php ActiveForm::end(); ?>
 
 
+<?php $form = ActiveForm::begin(['id' => 'forget-form',
+    'options' => ['class'  =>  'forget-form',],
+    'action'=>['account/request-password-reset'],
+]); ?>
+<input type="hidden" name="_csrf" value="<?= \Yii::$app->request->getCsrfToken() ?>">
+<h3>忘记密码了 ?</h3>
+
+<p>
+    在下面输入您的Email即可找回密码：
+</p>
+
+<div class="form-group">
+    <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="PasswordResetRequestForm[email]"/>
+</div>
+<div class="form-actions">
+    <button type="button" id="back-btn" class="btn btn-default">返回</button>
+    <button type="submit" class="btn btn-success uppercase pull-right">提交</button>
+</div>
+
+<?php ActiveForm::end(); ?>
 
 
 
-
-<!-- BEGIN FORGOT PASSWORD FORM -->
+<!-- BEGIN FORGOT PASSWORD FORM
 <form class="forget-form" action="/account/request-password-reset"
       method="post">
     <input type="hidden" name="_csrf" value="<?= \Yii::$app->request->getCsrfToken() ?>">
@@ -67,7 +86,7 @@ $this->registerJs('Metronic.init();
 </form>
 <!-- END FORGOT PASSWORD FORM -->
 <!-- BEGIN REGISTRATION FORM -->
-<form class="register-form" action="http://www.keenthemes.com/preview/metronic/theme/templates/admin/index.html"
+<form class="register-form" action="/account/signup"
       method="post">
     <h3>Sign Up</h3>
 

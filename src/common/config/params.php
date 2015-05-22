@@ -1,8 +1,8 @@
 <?php
 $lookup = require(__DIR__ . '/lookup.php');
 return [
-    'adminEmail' => 'shen@shenl.com',
-    'supportEmail' => 'shen@shenl.com',
+    'adminEmail' => 'demo@sindm.com',
+    'supportEmail' => 'demo@sindm.com',
     'user.passwordResetTokenExpire' => 3600,
 
     'upload'=> [

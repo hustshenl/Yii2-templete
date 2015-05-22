@@ -8,8 +8,8 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use common\models\user\LoginForm;
-use common\models\PasswordResetRequestForm;
-use common\models\ResetPasswordForm;
+use common\models\user\PasswordResetRequestForm;
+use common\models\user\ResetPasswordForm;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 

@@ -63,7 +63,7 @@ LoginAsset::register($this);
     <!-- END CONTAINER -->
     <!-- BEGIN FOOTER -->
     <div class="copyright">
-        2014-<?= date('Y') ?> &copy; Meilinnet.
+        <?= \yii\helpers\ArrayHelper::getValue(Yii::$app->config->get('siteInfo'),'siteCopyright','2014-'.date('Y').' &copy; SHENL.COM.'); ?>
     </div>
     <?= (Metronic::getComponent()->layoutOption == Metronic::LAYOUT_BOXED) ? Html::endTag('div') : ''; ?>
     <?php $this->endBody() ?>
