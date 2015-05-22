@@ -202,7 +202,12 @@ $this->registerJs('Metronic.init();Layout.init(); QuickSidebar.init();Demo.init(
                 'items' => [
                     // Important: you need to specify url as 'controller/action',
                     // not just as 'controller' even if default action is used.
-                    ['icon' => 'fa fa-home', 'label' => \Yii::t('common', 'Home'), 'url' => ['site/index']],
+                    [
+                        'icon' => 'fa fa-home',
+                        'label' => \Yii::t('common', 'Home'),
+                        'url' => ['site/index'],
+                        'childUrls' => ['account/index', 'account/edit'],
+                    ],
                     // 'Products' menu item will be selected as long as the route is 'product/index'
                     [
                         'icon' => 'fa fa-user',
