@@ -8,9 +8,9 @@ return [
             'class' => 'yii\caching\FileCache',
             'cachePath' => '@common/runtime/cache',
         ],
-        /*'formatter' => [
-            'class' => 'common\components\Formatter',
-        ],*/
+        'formatter' => [
+            'class' => 'common\helpers\Formatter',
+        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'viewPath' => '@common/mail',
@@ -21,7 +21,7 @@ return [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.qq.com',
-                'username' => 'shenlei@meilinnet.com',
+                'username' => 'shen@shenl.com',
                 'password' => '123456',
                 'port' => '465',
                 'encryption' => 'ssl',
