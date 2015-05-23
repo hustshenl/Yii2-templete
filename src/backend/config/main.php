@@ -14,8 +14,9 @@ return [
     'modules' => [],
     'components' => [
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'backend\models\User',
             'enableAutoLogin' => true,
+            'loginUrl' => '/site/error',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
