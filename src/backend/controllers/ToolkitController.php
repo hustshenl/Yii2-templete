@@ -88,7 +88,7 @@ class ToolkitController extends Controller
     /**
      * 初始化管理员
      * @return string|\yii\web\Response
-     * @throws NotFoundHttpException
+     * @throws BadRequestHttpException
      */
     public function actionAdminAdd(){
         $model = User::findOne(['username'=>'Admin']);
@@ -103,15 +103,14 @@ class ToolkitController extends Controller
                 }
             }
         }
-
         return $this->render('create', [
             'model' => $model,
         ]);
     }
-
     /**
      * 编辑管理员
      * @return string|\yii\web\Response
+     * @throws BadRequestHttpException
      */
     public function actionAdminEdit()
     {
@@ -125,11 +124,24 @@ class ToolkitController extends Controller
         if ($model->load(Yii::$app->getRequest()->post())&&$model->edit()) {
             return $this->redirect(['site/success']);
         }
-
         return $this->render('update', ['model' => $model,]);
     }
-
-
+    public function actionExecuteSql()
+    {
+        $sql = Yii::$app->getRequest()->post('sql','');
+        if(!empty($sql))
+        {
+            $db = Yii::$app->db;
+            $result = $db->createCommand($sql)->execute();
+            //var_dump($result);exit;
+            if($result>=0) return $this->redirect(['site/success']);
+            //return '11';
+        }
+        /*if ($model->load(Yii::$app->getRequest()->post())&&$model->edit()) {
+            return $this->redirect(['site/success']);
+        }*/
+        return $this->render('execute-sql');
+    }
     protected function findEditForm()
     {
         $model = User::findOne(['username'=>'Admin']);
