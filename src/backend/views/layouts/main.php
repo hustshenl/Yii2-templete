@@ -25,7 +25,7 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' => '系统管理',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -44,7 +44,7 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left"><?= \yii\helpers\ArrayHelper::getValue(Yii::$app->config->get('siteInfo'),'siteCopyright','2014-'.date('Y').' &copy; SHENL.COM.'); ?></p>
         <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>
