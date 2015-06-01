@@ -14,7 +14,8 @@ use yii;
 
 class IPBehavior extends AttributeBehavior
 {
-    public $ipAttribute = 'login_ip';
+    public $updatedAtAttribute = 'login_ip';
+    public $createdAtAttribute = 'register_ip';
     public $value;
 
 
@@ -27,7 +28,8 @@ class IPBehavior extends AttributeBehavior
 
         if (empty($this->attributes)) {
             $this->attributes = [
-                BaseActiveRecord::EVENT_BEFORE_UPDATE => $this->ipAttribute,
+                BaseActiveRecord::EVENT_BEFORE_INSERT => [$this->createdAtAttribute, $this->updatedAtAttribute],
+                BaseActiveRecord::EVENT_BEFORE_UPDATE => $this->updatedAtAttribute,
             ];
         }
     }
