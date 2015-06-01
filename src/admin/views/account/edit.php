@@ -51,7 +51,7 @@ window.history.back();
                     ]); ?>
                     <?= $form->field($model, 'username',['inputOptions'=>['class' => 'form-control','disabled'=>true]]) ?>
                     <?= $form->field($model, 'email',['inputOptions'=>['class' => 'form-control','disabled'=>true]]) ?>
-                    <?= $form->field($model, 'nickname',['inputOptions'=>['class' => 'form-control','disabled'=>true]]) ?>
+                    <?= $form->field($model, 'nickname') ?>
                     <?= $form->field($model, 'password')->passwordInput() ?>
                     <?= $form->field($model, 'newPassword')->passwordInput() ?>
                     <?= $form->field($model, 'password2')->passwordInput() ?>

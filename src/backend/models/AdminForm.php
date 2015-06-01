@@ -51,6 +51,7 @@ class AdminForm extends Model
             ['email', 'unique', 'message' => 'This email address has already been taken.'],
             //['password', 'required'],
             ['password', 'string', 'min' => 6],
+            [['nickname','phone'], 'string', 'max' => 50],
         ];
     }
     /**
